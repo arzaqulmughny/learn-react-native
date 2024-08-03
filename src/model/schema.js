@@ -8,7 +8,7 @@ export default appSchema({
       columns: [
         {name: 'name', type: 'string'},
         {name: 'age', type: 'number'},
-        {name: 'create_at', type: 'number'},
+        {name: 'created_at', type: 'number'},
         {name: 'updated_at', type: 'number'},
       ],
     }),

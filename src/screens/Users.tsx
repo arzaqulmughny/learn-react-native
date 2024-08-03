@@ -5,6 +5,7 @@ import {
   Alert,
   Button,
   FlatList,
+  Modal,
   ScrollView,
   StyleSheet,
   Text,
@@ -12,6 +13,7 @@ import {
   View,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import UserItem from '../components/UserItem';
 
 type UserType = {
   name: string;
@@ -97,14 +99,17 @@ const Users = () => {
           {!users && <Text style={{color: 'gray'}}>Data belum tersedia</Text>}
 
           {users && users.length > 0 && (
-            <ScrollView style={{height: 250}} scr>
-              {users.map((user, index) => (
-                <View style={{borderWidth: 1, padding: 7}} key={index}>
-                  <Text style={{color: 'black'}}>
-                    {index + 1}. {user.name} - {user.age} tahun
-                  </Text>
-                </View>
-              ))}
+            <ScrollView style={{height: 250}}>
+              <View style={{rowGap: 14}}>
+                {users.map((user, index) => (
+                  <UserItem
+                    index={index + 1}
+                    name={user.name}
+                    age={user.age}
+                    key={index}
+                  />
+                ))}
+              </View>
             </ScrollView>
           )}
         </View>
